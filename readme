@@ -1,0 +1,193 @@
+📦 Inventory Management API (FastAPI)
+
+A lightweight Inventory Management System built using FastAPI that allows querying host inventory based on cloud provider, region, status, tags, and IP addresses.
+
+🚀 Features
+
+Load inventory from a JSON file
+
+Fetch all hosts
+
+Search hosts by:
+
+Hostname
+
+Cloud provider (AWS / Azure / GCP)
+
+Region
+
+Active / Inactive status
+
+Tags (key-value)
+
+Private IP
+
+Public IP
+
+Proper error handling using HTTPException
+
+Auto-generated API documentation (Swagger / ReDoc)
+
+🛠️ Tech Stack
+
+Python 3.8+
+
+FastAPI
+
+Uvicorn
+
+JSON-based inventory
+
+📂 Project Structure
+.
+├── main.py
+├── inventory.json
+└── README.md
+
+📄 Inventory Format (inventory.json)
+{
+  "Host1": {
+    "name": "Host1",
+    "Cloud": "AWS",
+    "region": "us-east-1",
+    "Private_ip": "192.168.1.1",
+    "Public_ip": "1.1.1.1",
+    "active": true,
+    "Tags": {
+      "Environment": "Production",
+      "Owner": "TeamA"
+    }
+  }
+}
+
+⚙️ Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/iamrahulgupta7/fastapi.git
+cd inventory-api
+
+2️⃣ Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+3️⃣ Install dependencies
+pip install fastapi uvicorn
+
+4️⃣ Run the application
+uvicorn main:app --reload
+
+🌐 Access the API
+
+API Base URL:
+
+http://127.0.0.1:8000
+
+
+Swagger UI (interactive docs):
+
+http://127.0.0.1:8000/docs
+
+
+ReDoc:
+
+http://127.0.0.1:8000/redoc
+
+📌 API Endpoints
+🔹 Health Check
+GET /
+
+🔹 Get all hosts
+GET /all
+
+🔹 Get host by hostname
+GET /host/{hostname}
+
+
+Example
+
+/host/Host1
+
+🔹 Get hosts by cloud provider
+GET /cloud/{cloud_name}
+
+
+Example
+
+/cloud/aws
+
+🔹 Get hosts by region
+GET /region/{region_name}
+
+
+Example
+
+/region/us-east-1
+
+🔹 Get hosts by status
+GET /status/{status}
+
+
+Example
+
+/status/active
+/status/inactive
+
+🔹 Get hosts by tag
+GET /tag/{tag_key}/{tag_value}
+
+
+Example
+
+/tag/Environment/Production
+
+🔹 Get host by private IP
+GET /private_ip/{private_ip}
+
+
+Example
+
+/private_ip/192.168.1.1
+
+🔹 Get host by public IP
+GET /public_ip/{public_ip}
+
+
+Example
+
+/public_ip/1.1.1.1
+
+❌ Error Handling
+
+If no matching host is found, the API returns:
+
+{
+  "detail": "No hosts found for the specified criteria"
+}
+
+
+With appropriate HTTP status codes like 404.
+
+🧠 Design Notes
+
+Case-insensitive search for cloud, region, tags
+
+Inventory is loaded once at startup for performance
+
+Uses Path() for parameter validation and documentation
+
+Uses HTTPException for clean error handling
+
+🚀 Future Improvements
+
+Add POST / PUT / DELETE endpoints (CRUD)
+
+Persist inventory in a database
+
+Add authentication (JWT)
+
+Convert responses to Pydantic models
+
+Add query-based filtering (?cloud=aws&region=us-east-1)
+
+👨‍💻 Author
+
+Rahul Gupta
