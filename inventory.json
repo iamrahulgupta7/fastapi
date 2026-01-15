@@ -1,0 +1,53 @@
+{
+"Host1": {
+    
+   "name": "Host1",
+   "Cloud": "AWS",
+   "region": "us-east-1",
+   "Private_ip": "192.168.1.1",
+   "Public_ip": "1.1.1.1",
+   "active": true,
+   "Tags": { 
+       "Environment": "Production",
+       "Owner": "TeamA"
+    }
+},
+"Host2": {
+    
+   "name": "Host2",
+   "Cloud": "Azure",
+   "region": "us-west-2",
+   "Private_ip": "192.168.1.2",
+   "Public_ip": "1.1.1.2",
+   "active": true,
+   "Tags": { 
+       "Environment": "Development",
+       "Owner": "TeamB"
+    }
+},
+"host3": {
+    "name": "Host3",
+    "Cloud": "GCP",
+    "region": "us-central1",
+    "Private_ip": "192.168.1.3",
+    "Public_ip": "1.1.1.3",
+    "active": true,
+    "Tags": { 
+        "Environment": "Production",
+        "Owner": "TeamC"
+    }
+   
+},
+"host4": {
+    "name": "Host4",
+    "Cloud": "AWS",
+    "region": "us-east-1",
+    "Private_ip": "192.168.1.4",
+    "Public_ip": "1.1.1.4",
+    "active": true,
+    "Tags": { 
+        "Environment": "Production",
+        "Owner": "TeamD"
+    }
+}
+}
